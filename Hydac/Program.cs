@@ -10,6 +10,7 @@
 
             Guest guest = new Guest("");
             Company company = new Company("");
+            Worker worker = new Worker("");
 
             switch (valg) 
             {
@@ -20,7 +21,9 @@
 
                     Console.Write("\nIndtast firma navn: ");
                     company.CompanyName = Console.ReadLine();
+
                     
+
                     break;
             }
 
