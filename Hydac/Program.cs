@@ -11,6 +11,7 @@
             Guest guest = new Guest("");
             Company company = new Company("");
             Worker worker = new Worker("");
+            Visit visit = new Visit();
 
             switch (valg) 
             {
@@ -21,8 +22,14 @@
 
                     Console.Write("\nIndtast firma navn: ");
                     company.CompanyName = Console.ReadLine();
-
                     
+                    Console.WriteLine("\nHvad tid checker du ud?");
+                    //visit.CheckOut = Parse.Console.ReadLine();
+                    //visit.CheckOut = Console.ReadLine();
+                    //Console.WriteLine(visit.CheckOut);
+
+                    Console.Clear();
+                    Console.WriteLine($"{guest.GuestName} fra {company.CompanyName} er tjekket ind {visit.CheckIn.ToString()}");
 
                     break;
             }
