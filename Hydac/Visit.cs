@@ -9,12 +9,13 @@ namespace Hydac
     public class Visit
     {
         private DateTime _checkIn;
-        private DateTime checkOut;
-        private bool deliveredFolder;
+        private DateTime _checkOut;
+        private bool _deliveredFolder;
 
         public Visit()
         {
-             _checkIn = DateTime.Now; 
+
+
         }
 
         public DateTime CheckIn 
@@ -25,16 +26,14 @@ namespace Hydac
         
         public DateTime CheckOut
         {
-            set { CheckOut = value; }
+            set { _checkOut = value; }
+            get { return _checkOut; }
         }
-        /*public DateTime CheckOut(double value)
-        {
-            return checkOut;
-        }*/
 
         public bool DeliveredFolder
         {
-            set { DeliveredFolder = value; }
+            set { _deliveredFolder = value; }
+            get { return _deliveredFolder; }
         }
 
     }

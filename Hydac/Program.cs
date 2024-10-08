@@ -1,35 +1,63 @@
-﻿namespace Hydac
+﻿using System.ComponentModel;
+using System.Security.Cryptography.X509Certificates;
+
+namespace Hydac
 {
     internal class Program
     {
+       
         static void Main(string[] args)
         {
             Console.WriteLine("Velkommen");
             Console.WriteLine("\nTryk: 1 for at registrere en gæst");
             int valg =int.Parse(Console.ReadLine());
 
-            Guest guest = new Guest("");
-            Company company = new Company("");
-            Worker worker = new Worker("");
-            Visit visit = new Visit();
+            Guest guest;
+            Company company;
+            Worker worker;
+            Visit visit;
+
+            Guest[] guestList = new Guest[10];
+            int numberofGuestList = 0;
 
             switch (valg) 
             {
                 case 1:
                     Console.Clear();
                     Console.Write("Indtast navn: ");
-                    guest.GuestName = Console.ReadLine();
+                    string guestname = Console.ReadLine();                
 
                     Console.Write("\nIndtast firma navn: ");
-                    company.CompanyName = Console.ReadLine();
+                    string companyname = Console.ReadLine();
                     
-                    Console.WriteLine("\nHvad tid checker du ud?");
-                    //visit.CheckOut = Parse.Console.ReadLine();
-                    //visit.CheckOut = Console.ReadLine();
-                    //Console.WriteLine(visit.CheckOut);
+                    Console.WriteLine("\nHvad tid checker du ud? TT:MM");
+                    DateTime checkout = DateTime.Parse(Console.ReadLine());
+                    
+
+                    visit = new Visit();
+                    visit.CheckIn = DateTime.Now;
+                    visit.CheckOut = checkout;
+                    company = new Company(companyname);
+                    guest = new Guest(guestname, company);
+                    guest.visits[guest.numberOfVisit++] = visit;
+                    
+                    while (visit.DeliveredFolder == false)
+                    {
+                        Console.WriteLine("Har du modtaget et sikkerhedsfolder? \nTryk Y/N");
+                        string sikkerhedsFolderSvar = Console.ReadLine();
+                        if (sikkerhedsFolderSvar == "y")
+                        {
+                            visit.DeliveredFolder = true;
+                        }
+                        else
+                        {
+                            visit.DeliveredFolder = false;
+                        }
+                    }
 
                     Console.Clear();
                     Console.WriteLine($"{guest.GuestName} fra {company.CompanyName} er tjekket ind {visit.CheckIn.ToString()}");
+                    Console.WriteLine($"Du har valgt at tjekket ud {visit.CheckOut.ToShortTimeString()}");
 
                     break;
             }
