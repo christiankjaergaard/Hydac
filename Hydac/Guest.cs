@@ -10,13 +10,18 @@ namespace Hydac
     {
         private string _guestName;
         private Company company;
+        public Company Company
+        {
+            get { return company; }
+            set { company = value; }
+        }
         public string GuestName 
         { 
             get {  return _guestName; }
             set { _guestName = value; }
         }
-        public Visit[] visits = new Visit[10];
-        public int numberOfVisit = 0;
+       // public Visit[] visits = new Visit[10];
+       // public int numberOfVisit = 0;
 
         public Guest(string guestName, Company company)
         {

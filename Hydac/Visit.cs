@@ -12,10 +12,10 @@ namespace Hydac
         private DateTime _checkOut;
         private bool _deliveredFolder;
 
-        public Visit()
+        public Visit(Guest guest, Worker worker)
         {
-
-
+            this.guest = guest;
+            this.worker = worker;
         }
 
         public DateTime CheckIn 
@@ -36,5 +36,12 @@ namespace Hydac
             get { return _deliveredFolder; }
         }
 
+        public override string ToString()           //override af ToString
+        {
+            return "Worker Name: " + this.worker.WorkerName + " Name: " + this.guest.GuestName + " Company: " + this.guest.Company.CompanyName + " Folder delivered = " + DeliveredFolder + " Checkin: " + CheckIn + " Checkout: " + CheckOut;
+        }
+
+        public Guest guest { get; set; }
+        public Worker worker { get;  set; }
     }
 }

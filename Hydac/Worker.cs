@@ -14,9 +14,9 @@ namespace Hydac
             get { return _workerName; } 
             set { _workerName = value; }
         }
-        public Worker(string worker) 
+        public Worker(string workerName) 
         {
-            _workerName = worker;
+            _workerName = workerName;
         }
 
     }
