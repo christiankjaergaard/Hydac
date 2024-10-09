@@ -78,8 +78,8 @@ namespace Hydac
                         File.WriteAllText("HydacVisitList.json", jsonstring);       //Skriver det i filen
 
                         Console.Clear();
-                        Console.WriteLine($"{guest.GuestName} fra {company.CompanyName} er tjekket ind {visit.CheckIn.ToString()}");
-                        Console.WriteLine($"Du har valgt at tjekket ud {visit.CheckOut.ToShortTimeString()}");
+                        Console.WriteLine($"{worker.WorkerName} indtjekkede gæsten {guest.GuestName} fra {company.CompanyName} d. {visit.CheckIn.ToString()}");
+                        Console.WriteLine($"Du har valgt at tjekke ud {visit.CheckOut.ToShortTimeString()} \n");
 
                         break;
                         
